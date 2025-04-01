@@ -1,0 +1,17 @@
+# Ignorera node_modules (beroenden)
+node_modules/
+
+# Ignorera miljövariabler
+.env
+
+# Ignorera loggfiler
+logs/
+*.log
+
+# Ignorera temporära filer
+temp/
+*.tmp
+
+# Ignorera IDE-specifika filer (VS Code, MacOS)
+.vscode/
+.DS_Store
