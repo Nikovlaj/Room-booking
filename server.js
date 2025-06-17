@@ -24,13 +24,7 @@ io.on("connection", (socket) => {
   });
 });
 
-app.use((req, res, next) => {
-  if (["POST", "PUT", "PATCH", "DELETE"].includes(req.method)) {
-    express.json()(req, res, next);
-  } else {
-    next();
-  }
-});
+app.use(express.json());
 const bookingroute = require("./routes/bookingroute");
 app.use("/api/bookings", bookingroute);
 
@@ -44,7 +38,7 @@ const roomRoute = require("./routes/roomroute");
 app.use("/api/rooms", roomRoute);
 
 const authRoutes = require("./routes/authroutes"); // Anpassa sökväg om fil ligger annorlunda
-const { Socket } = require("dgram");
+//const { Socket } = require("dgram");
 app.use("/api", authRoutes); // /api/register, /api/login
 
 const PORT = process.env.PORT || 5000;
@@ -62,6 +56,6 @@ app.get("/", (req, res) => {
   res.send("Servern fungerar!");
 });
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Servern körs på http://localhost:${PORT}`);
 });
