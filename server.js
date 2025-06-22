@@ -42,7 +42,7 @@ const authRoutes = require("./routes/authroutes"); // Anpassa sökväg om fil li
 app.use("/api", authRoutes); // /api/register, /api/login
 
 const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.DB_URL || "mongodb://localhost:27017/booking";
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/booking";
 
 mongoose
   .connect(MONGO_URI)
